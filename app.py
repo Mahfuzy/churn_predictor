@@ -7,7 +7,7 @@ from groq import Groq
 
 # Load environment variables
 load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = st.secrets["GROQ_API_KEY"]
 if not groq_api_key:
     st.error("GROQ_API_KEY is missing. Set it in environment variables.")
     st.stop()

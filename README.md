@@ -43,8 +43,8 @@ The application uses a bank customer dataset with the following features:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd bank-churn-prediction
+git clone https://github.com/Mahfuzy/churn_predictor.git
+cd churn_predictor
 ```
 
 2. Create and activate a virtual environment:

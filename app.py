@@ -7,9 +7,15 @@ from groq import Groq
 
 # Load environment variables
 load_dotenv()
-groq_api_key = st.secrets["GROQ_API_KEY"]
+
+# Try to get API key from Streamlit secrets first, then from environment variables
+try:
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+except:
+    groq_api_key = os.getenv("GROQ_API_KEY")
+
 if not groq_api_key:
-    st.error("GROQ_API_KEY is missing. Set it in environment variables.")
+    st.error("GROQ_API_KEY is missing. Please set it in either .streamlit/secrets.toml or .env file.")
     st.stop()
 
 client = Groq(api_key=groq_api_key)
